@@ -12,6 +12,7 @@ import { VerificationModule } from '@/modules/auth/verification/verification.mod
 import { CategoryModule } from '@/modules/category/category.module'
 import { ChatModule } from '@/modules/chat/chat.module'
 import { CronModule } from '@/modules/cron/cron.module'
+import { LivekitModule } from '@/modules/libs/livekit/livekit.module'
 import { MailModule } from '@/modules/libs/mail/mail.module'
 import { StorageModule } from '@/modules/libs/storage/storage.module'
 import { StreamModule } from '@/modules/stream/stream.module'
@@ -20,6 +21,7 @@ import { AccountModule } from '../modules/auth/account/account.module'
 import { IS_DEV_ENV } from '../shared/utils/is-dev.util'
 
 import { getGraphQLConfig } from './config/graphql.config'
+import { getLiveKitConfig } from './config/livekit.config'
 import { PrismaModule } from './prisma/prisma.module'
 import { RedisModule } from './redis/redis.module'
 
@@ -34,6 +36,11 @@ import { RedisModule } from './redis/redis.module'
 			driver: ApolloDriver,
 			imports: [ConfigModule],
 			useFactory: getGraphQLConfig,
+			inject: [ConfigService]
+		}),
+		LivekitModule.registerAsync({
+			imports: [ConfigModule],
+			useFactory: getLiveKitConfig,
 			inject: [ConfigService]
 		}),
 		PrismaModule,

@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
 
-import { PrismaService } from '@/src/core/prisma/prisma.service'
+import { PrismaService } from '@/core/prisma/prisma.service'
 
 @Injectable()
 export class CategoryService {
@@ -67,7 +67,7 @@ export class CategoryService {
 		})
 
 		if (!category) {
-			throw new NotFoundException('Категория не найдена')
+			throw new NotFoundException('Category not found')
 		}
 
 		return category
