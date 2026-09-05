@@ -5,7 +5,9 @@ import { render } from '@react-email/components'
 
 import { SessionMetadata } from '@/shared/types/session-metadata.types'
 
+import { AccountDeletionTemplate } from './templates/account-deletion.template'
 import { DeactivateTemplate } from './templates/deactivate.template'
+import { EnableTwoFactorTemplate } from './templates/enable-two-factor.template'
 import { PasswordRecoveryTemplate } from './templates/password-recovery.template'
 import { VerificationTemplate } from './templates/verification.template'
 
@@ -52,5 +54,19 @@ export class MailService {
 		const html = await render(DeactivateTemplate({ token, metadata }))
 
 		return this.sendMail(email, 'Account Deactivation', html)
+	}
+
+	public async sendAcccountDeletion(email: string) {
+		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+		const html = await render(AccountDeletionTemplate({ domain }))
+
+		return this.sendMail(email, 'Аккаунт удалён', html)
+	}
+
+	public async sendEnableTwoFactor(email: string) {
+		const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+		const html = await render(EnableTwoFactorTemplate({ domain }))
+
+		return this.sendMail(email, 'Ensure Your Security', html)
 	}
 }
