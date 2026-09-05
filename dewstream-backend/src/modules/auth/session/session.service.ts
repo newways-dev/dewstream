@@ -1,4 +1,5 @@
 import {
+	ConflictException,
 	Injectable,
 	NotFoundException,
 	UnauthorizedException
@@ -21,6 +22,56 @@ export class SessionService {
 		private readonly configService: ConfigService,
 		private readonly redisService: RedisService
 	) {}
+
+	public async findByUser(req: Request) {
+		const userId = req.session.userId
+
+		if (!userId) {
+			throw new NotFoundException('User not found in session')
+		}
+
+		const keys = await this.redisService.keys('*')
+
+		const userSessions = []
+
+		for (const key of keys) {
+			const sessionData = await this.redisService.get(key)
+
+			if (sessionData) {
+				const session = JSON.parse(sessionData)
+
+				if (session.userId === userId) {
+					userSessions.push({
+						...session,
+						id: key.split(':')[1]
+					})
+				}
+			}
+		}
+
+		userSessions.sort((a, b) => b.createdAt - a.createdAt)
+
+		return userSessions.filter(session => session.id !== req.session.id)
+	}
+
+	public async findCurrent(req: Request) {
+		const sessionId = req.session.id
+
+		const sessionData = await this.redisService.get(
+			`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${sessionId}`
+		)
+
+		if (!sessionData) {
+			throw new NotFoundException('Session not found')
+		}
+
+		const session = JSON.parse(sessionData)
+
+		return {
+			...session,
+			id: sessionId
+		}
+	}
 
 	public async login(req: Request, input: LoginInput, userAgent: string) {
 		const { login, password } = input
@@ -51,5 +102,25 @@ export class SessionService {
 
 	public async logout(req: Request) {
 		return destroySession(req, this.configService)
+	}
+
+	public async clearSession(req: Request) {
+		req.res.clearCookie(
+			this.configService.getOrThrow<string>('SESSION_NAME')
+		)
+
+		return true
+	}
+
+	public async remove(req: Request, id: string) {
+		if (req.session.id === id) {
+			throw new ConflictException('Cannot remove the current session')
+		}
+
+		await this.redisService.del(
+			`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${id}`
+		)
+
+		return true
 	}
 }
