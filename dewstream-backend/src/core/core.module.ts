@@ -9,9 +9,12 @@ import { ProfileModule } from '@/modules/auth/profile/profile.module'
 import { SessionModule } from '@/modules/auth/session/session.module'
 import { TotpModule } from '@/modules/auth/totp/totp.module'
 import { VerificationModule } from '@/modules/auth/verification/verification.module'
+import { CategoryModule } from '@/modules/category/category.module'
+import { ChatModule } from '@/modules/chat/chat.module'
 import { CronModule } from '@/modules/cron/cron.module'
 import { MailModule } from '@/modules/libs/mail/mail.module'
 import { StorageModule } from '@/modules/libs/storage/storage.module'
+import { StreamModule } from '@/modules/stream/stream.module'
 
 import { AccountModule } from '../modules/auth/account/account.module'
 import { IS_DEV_ENV } from '../shared/utils/is-dev.util'
@@ -44,7 +47,10 @@ import { RedisModule } from './redis/redis.module'
 		DeactivateModule,
 		CronModule,
 		StorageModule,
-		ProfileModule
+		ProfileModule,
+		StreamModule,
+		CategoryModule,
+		ChatModule
 	]
 })
 export class CoreModule {}
