@@ -6,6 +6,7 @@ import { NestFactory } from '@nestjs/core'
 import RedisStore from 'connect-redis'
 import cookieParser from 'cookie-parser'
 import session from 'express-session'
+import { graphqlUploadExpress } from 'graphql-upload-ts'
 
 import { CoreModule } from './core/core.module'
 import { RedisService } from './core/redis/redis.service'
@@ -19,6 +20,7 @@ async function bootstrap() {
 	const redis = app.get(RedisService)
 
 	app.use(cookieParser(config.getOrThrow<string>('COOKIES_SECRET')))
+	app.use(config.getOrThrow<string>('GRAPHQL_PREFIX'), graphqlUploadExpress())
 
 	app.useGlobalPipes(
 		new ValidationPipe({
