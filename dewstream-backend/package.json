@@ -27,6 +27,7 @@
 	"dependencies": {
 		"@apollo/server": "^5.5.1",
 		"@as-integrations/express5": "^1.1.2",
+		"@nestjs-modules/mailer": "2",
 		"@nestjs/apollo": "^14.0.0",
 		"@nestjs/common": "^12.0.1",
 		"@nestjs/config": "^12.0.0",
@@ -36,6 +37,9 @@
 		"@nestjs/platform-express": "^12.0.1",
 		"@prisma/adapter-pg": "^7.10.0",
 		"@prisma/client": "7",
+		"@react-email/components": "^0.0.26",
+		"@react-email/html": "^0.0.10",
+		"@react-email/tailwind": "^1.0.0",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
 		"argon2": "^0.45.1",
 		"class-transformer": "^0.5.1",
@@ -50,8 +54,11 @@
 		"i18n-iso-countries": "^7.14.0",
 		"ioredis": "^6.0.0",
 		"prisma": "7",
+		"react": "^19.2.8",
+		"react-dom": "^19.2.8",
 		"reflect-metadata": "^0.2.2",
-		"rxjs": "^7.8.1"
+		"rxjs": "^7.8.1",
+		"uuid": "^14.0.2"
 	},
 	"devDependencies": {
 		"@nestjs/cli": "^12.0.0",
@@ -63,6 +70,8 @@
 		"@types/express-session": "^1.19.0",
 		"@types/geoip-lite": "^1.4.4",
 		"@types/node": "^24.0.0",
+		"@types/react": "^19.2.18",
+		"@types/react-dom": "^19.2.7",
 		"@types/supertest": "^7.0.0",
 		"@vitest/coverage-v8": "^4.1.2",
 		"oxlint": "^1.58.0",
