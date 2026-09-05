@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 
 import { PasswordRecoveryModule } from '@/modules/auth/password-recovery/password-recovery.module'
 import { SessionModule } from '@/modules/auth/session/session.module'
+import { TotpModule } from '@/modules/auth/totp/totp.module'
 import { VerificationModule } from '@/modules/auth/verification/verification.module'
 import { MailModule } from '@/modules/libs/mail/mail.module'
 
@@ -34,7 +35,8 @@ import { RedisModule } from './redis/redis.module'
 		SessionModule,
 		VerificationModule,
 		MailModule,
-		PasswordRecoveryModule
+		PasswordRecoveryModule,
+		TotpModule
 	]
 })
 export class CoreModule {}
