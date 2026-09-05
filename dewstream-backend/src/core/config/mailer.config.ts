@@ -13,7 +13,7 @@ export function getMailerConfig(configService: ConfigService): MailerOptions {
 			}
 		},
 		defaults: {
-			from: `"Dewstream" ${configService.getOrThrow<string>('MAIL_LOGIN')}`
+			from: `"Dewstream" <no-reply@katelagutin.com>`
 		}
 	}
 }
