@@ -1,9 +1,9 @@
 import { Args, Mutation, Query, Resolver, Subscription } from '@nestjs/graphql'
 import { PubSub } from 'graphql-subscriptions'
 
-import { User } from '@/prisma/generated'
-import { Authorization } from '@/src/shared/decorators/auth.decorator'
-import { Authorized } from '@/src/shared/decorators/authorized.decorator'
+import { User } from '@/generated/prisma/client'
+import { Authorization } from '@/shared/decorators/auth.decorator'
+import { Authorized } from '@/shared/decorators/authorized.decorator'
 
 import { ChatService } from './chat.service'
 import { ChangeChatSettingsInput } from './inputs/change-chat-settings.input'

@@ -4,8 +4,8 @@ import {
 	NotFoundException
 } from '@nestjs/common'
 
-import { User } from '@/prisma/generated'
-import { PrismaService } from '@/src/core/prisma/prisma.service'
+import { PrismaService } from '@/core/prisma/prisma.service'
+import { User } from '@/generated/prisma/client'
 
 import { ChangeChatSettingsInput } from './inputs/change-chat-settings.input'
 import { SendMessageInput } from './inputs/send-message.input'
@@ -40,11 +40,11 @@ export class ChatService {
 		})
 
 		if (!stream) {
-			throw new NotFoundException('Стрим не найден')
+			throw new NotFoundException('Stream was not found')
 		}
 
 		if (!stream.isLive) {
-			throw new BadRequestException('Стрим не в режиме живого вещания')
+			throw new BadRequestException('Stream is not live')
 		}
 
 		const message = await this.prismaService.chatMessage.create({
