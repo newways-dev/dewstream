@@ -19,4 +19,13 @@ export class TransactionResolver {
 	public async findMyTransactions(@Authorized() user: User) {
 		return this.transactionService.findMyTransactions(user)
 	}
+
+	@Authorization()
+	@Mutation(() => MakePaymentModel, { name: 'makePayment' })
+	public async makePayment(
+		@Authorized() user: User,
+		@Args('planId') planId: string
+	) {
+		return this.transactionService.makePayment(user, planId)
+	}
 }
