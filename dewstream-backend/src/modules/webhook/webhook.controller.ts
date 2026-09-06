@@ -22,9 +22,27 @@ export class WebhookController {
 		@Headers('Authorization') authorization: string
 	) {
 		if (!authorization) {
-			throw new UnauthorizedException('Authorization header is missing')
+			throw new UnauthorizedException('Missing authorization header')
 		}
 
 		return this.webhookService.receiveWebhookLivekit(body, authorization)
+	}
+
+	@Post('stripe')
+	@HttpCode(HttpStatus.OK)
+	public async receiveWebhookStripe(
+		@RawBody() rawBody: string,
+		@Headers('stripe-signature') sig: string
+	) {
+		if (!sig) {
+			throw new UnauthorizedException('Missing Stripe signature header')
+		}
+
+		const event = await this.webhookService.constructStripeEvent(
+			rawBody,
+			sig
+		)
+
+		await this.webhookService.receiveWebhookStripe(event)
 	}
 }
