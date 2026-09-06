@@ -16,6 +16,8 @@ export function getGraphQLConfig(
 		context: ({ req, res }: { req: Request; res: Response }) => ({
 			req,
 			res
-		})
+		}),
+		installSubscriptionHandlers: true,
+		introspection: true
 	}
 }
