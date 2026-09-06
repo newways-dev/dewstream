@@ -1,6 +1,8 @@
 import { Module, RequestMethod } from '@nestjs/common'
 import type { MiddlewareConsumer } from '@nestjs/common/interfaces'
 
+import { RawBodyMiddleware } from '@/shared/middlewares/raw-body.middleware'
+
 import { WebhookController } from './webhook.controller'
 import { WebhookService } from './webhook.service'
 
@@ -9,9 +11,9 @@ import { WebhookService } from './webhook.service'
 	providers: [WebhookService]
 })
 export class WebhookModule {
-	// public configure(cosumer: MiddlewareConsumer) {
-	// 	cosumer
-	// 		.apply(RawBodyMiddleware)
-	// 		.forRoutes({ path: 'webhook/livekit', method: RequestMethod.POST })
-	// }
+	public configure(cosumer: MiddlewareConsumer) {
+		cosumer
+			.apply(RawBodyMiddleware)
+			.forRoutes({ path: 'webhook/livekit', method: RequestMethod.POST })
+	}
 }
