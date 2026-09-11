@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme inline {
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
+
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
+
+	--color-accent: hsl(var(--accent));
+	--color-accent-foreground: hsl(var(--accent-foreground));
+
+	--color-popover: hsl(var(--popover));
+	--color-popover-foreground: hsl(var(--popover-foreground));
+
+	--color-card: hsl(var(--card));
+	--color-card-foreground: hsl(var(--card-foreground));
+
+	--color-primary: hsl(var(--primary));
+	--color-primary-foreground: hsl(var(--primary-foreground));
+
+	--color-secondary: hsl(var(--secondary));
+	--color-secondary-foreground: hsl(var(--secondary-foreground));
+
+	--color-border: hsl(var(--border));
+	--color-input: hsl(var(--input));
+
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+	:root {
+		--background: 240 7% 97%;
+		--foreground: 240 7% 6%;
+
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 47.4% 11.2%;
+
+		--card: 225 10% 93%;
+		--card-foreground: 222.2 47.4% 11.2%;
+
+		--primary: 176 77% 41%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 210 29% 96%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 240 7% 97%;
+		--radius: 0.5rem;
+	}
+
+	.dark {
+		--background: 227 13% 14%;
+		--foreground: 213 31% 91%;
+
+		--muted: 224 16% 27%;
+		--muted-foreground: 215.4 16.3% 56.9%;
+
+		--accent: 227 13% 27%;
+		--accent-foreground: 210 40% 98%;
+
+		--popover: 231 14% 20%;
+		--popover-foreground: 213 31% 91%;
+
+		--card: 224 16% 19%;
+		--card-foreground: 213 31% 91%;
+
+		--primary: 176 77% 41%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 230 12% 29%;
+		--secondary-foreground: 210 40% 98%;
+
+		--border: 217 19% 27%;
+		--input: 227 13% 14%;
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+
+	html {
+		@apply scroll-smooth;
+	}
+
+	body {
+		@apply overscroll-none bg-background text-foreground;
+
+		font-family: var(--font-geist-sans), sans-serif;
+		height: 100vh;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 9px;
+}
+
+::-webkit-scrollbar-track {
+	@apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+	@apply rounded-full bg-secondary;
+}
