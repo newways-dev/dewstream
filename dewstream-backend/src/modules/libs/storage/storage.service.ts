@@ -30,18 +30,16 @@ export class StorageService {
 	}
 
 	public async upload(buffer: Buffer, key: string, mimetype: string) {
+		const cleanKey = key.replace(/^\/+/, '')
+
 		const command: PutObjectCommandInput = {
 			Bucket: this.bucket,
-			Key: String(key),
+			Key: cleanKey,
 			Body: buffer,
 			ContentType: mimetype
 		}
 
-		try {
-			await this.client.send(new PutObjectCommand(command))
-		} catch (error) {
-			throw error
-		}
+		await this.client.send(new PutObjectCommand(command))
 	}
 
 	public async remove(key: string) {
