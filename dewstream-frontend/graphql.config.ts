@@ -10,7 +10,12 @@ const config: CodegenConfig = {
 				'typescript',
 				'typescript-operations',
 				'typescript-react-apollo'
-			]
+			],
+			config: {
+				scalars: {
+					DateTime: 'string'
+				}
+			}
 		}
 	},
 	config: {

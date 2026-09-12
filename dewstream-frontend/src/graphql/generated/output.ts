@@ -15,7 +15,7 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean; }
   Int: { input: number; output: number; }
   Float: { input: number; output: number; }
-  DateTime: { input: unknown; output: unknown; }
+  DateTime: { input: string; output: string; }
   Upload: { input: unknown; output: unknown; }
 };
 
@@ -842,7 +842,7 @@ export type UpdateSocialLinkMutation = { updateSocialLink: boolean };
 export type FindAllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FindAllCategoriesQuery = { findAllCategories: Array<{ id: string, updatedAt: unknown, title: string, slug: string, thumbnailUrl: string }> };
+export type FindAllCategoriesQuery = { findAllCategories: Array<{ id: string, updatedAt: string, title: string, slug: string, thumbnailUrl: string }> };
 
 export type FindCategoryBySlugQueryVariables = Exact<{
   slug: string;
@@ -880,17 +880,17 @@ export type FindChatMessagesByStreamQueryVariables = Exact<{
 }>;
 
 
-export type FindChatMessagesByStreamQuery = { findChatMessagesByStream: Array<{ createdAt: unknown, text: string, user: { id: string, username: string } }> };
+export type FindChatMessagesByStreamQuery = { findChatMessagesByStream: Array<{ createdAt: string, text: string, user: { id: string, username: string } }> };
 
 export type FindMyFollowersQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FindMyFollowersQuery = { findMyFollowers: Array<{ createdAt: unknown, follower: { username: string, avatar: string | null, isVerified: boolean } }> };
+export type FindMyFollowersQuery = { findMyFollowers: Array<{ createdAt: string, follower: { username: string, avatar: string | null, isVerified: boolean } }> };
 
 export type FindMyFollowingsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FindMyFollowingsQuery = { findMyFollowings: Array<{ createdAt: unknown, followingId: string }> };
+export type FindMyFollowingsQuery = { findMyFollowings: Array<{ createdAt: string, followingId: string }> };
 
 export type FindAllStreamsQueryVariables = Exact<{
   filters: FiltersInput;
@@ -944,7 +944,7 @@ export type ChatMessageAddedSubscriptionVariables = Exact<{
 }>;
 
 
-export type ChatMessageAddedSubscription = { chatMessageAdded: { createdAt: unknown, text: string, user: { id: string, username: string } } };
+export type ChatMessageAddedSubscription = { chatMessageAdded: { createdAt: string, text: string, user: { id: string, username: string } } };
 
 
 export const CreateUserDocument = gql`
