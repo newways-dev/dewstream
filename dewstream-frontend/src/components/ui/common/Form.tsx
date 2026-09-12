@@ -1,16 +1,17 @@
 'use client'
 
-import * as LabelPrimitive from '@radix-ui/react-label'
-import { Slot } from '@radix-ui/react-slot'
 import {
 	type ComponentPropsWithoutRef,
 	type ComponentRef,
-	type HTMLAttributes,
 	createContext,
 	forwardRef,
+	type HTMLAttributes,
 	useContext,
 	useId
 } from 'react'
+
+import * as LabelPrimitive from '@radix-ui/react-label'
+import { Slot } from '@radix-ui/react-slot'
 import {
 	Controller,
 	type ControllerProps,

@@ -1,12 +1,13 @@
 'use client'
 
-import * as LabelPrimitive from '@radix-ui/react-label'
-import { type VariantProps, cva } from 'class-variance-authority'
 import {
 	type ComponentPropsWithoutRef,
 	type ComponentRef,
 	forwardRef
 } from 'react'
+
+import * as LabelPrimitive from '@radix-ui/react-label'
+import { cva, type VariantProps } from 'class-variance-authority'
 
 import { cn } from '@/utils/tw-merge'
 

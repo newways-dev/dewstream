@@ -1,10 +1,12 @@
 'use client'
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslations } from 'next-intl'
+import { useState } from 'react'
+
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -23,12 +25,9 @@ import {
 	InputOTPGroup,
 	InputOTPSlot
 } from '@/components/ui/common/InputOTP'
-
 import { useLoginUserMutation } from '@/graphql/generated/output'
-
 import { useAuth } from '@/hooks/useAuth'
-
-import { type TypeLoginSchema, loginSchema } from '@/schemas/auth/login.schema'
+import { loginSchema, type TypeLoginSchema } from '@/schemas/auth/login.schema'
 
 import { AuthWrapper } from '../AuthWrapper'
 

@@ -1,9 +1,10 @@
 'use client'
 
+import { useState } from 'react'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { CircleCheck } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -22,12 +23,10 @@ import {
 	FormLabel
 } from '@/components/ui/common/Form'
 import { Input } from '@/components/ui/common/Input'
-
 import { useCreateUserMutation } from '@/graphql/generated/output'
-
 import {
-	type TypeCreateAccountSchema,
-	createAccountSchema
+	createAccountSchema,
+	type TypeCreateAccountSchema
 } from '@/schemas/auth/create-account.schema'
 
 import { AuthWrapper } from '../AuthWrapper'

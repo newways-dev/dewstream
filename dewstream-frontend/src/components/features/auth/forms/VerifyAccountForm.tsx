@@ -1,13 +1,14 @@
 'use client'
 
+import { useEffect } from 'react'
+
+import { useRouter, useSearchParams } from 'next/navigation'
+
 import { Loader } from 'lucide-react'
 import { useTranslations } from 'next-intl'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
 import { toast } from 'sonner'
 
 import { useVerifyAccountMutation } from '@/graphql/generated/output'
-
 import { useAuth } from '@/hooks/useAuth'
 
 import { AuthWrapper } from '../AuthWrapper'

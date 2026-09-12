@@ -1,12 +1,11 @@
 import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client'
-import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
+import { createUploadLink } from 'apollo-upload-client'
+import { WebSocketLink } from '@apollo/client/link/ws'
 import { getMainDefinition } from '@apollo/client/utilities'
-import UploadHttpLink from 'apollo-upload-client/UploadHttpLink.mjs'
-import { createClient } from 'graphql-ws'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
 
-const httpLink = new UploadHttpLink({
+const httpLink = createUploadLink({
 	uri: SERVER_URL,
 	credentials: 'include',
 	headers: {
@@ -14,16 +13,16 @@ const httpLink = new UploadHttpLink({
 	}
 })
 
-const wsLink = new GraphQLWsLink(
-	createClient({
-		url: WEBSOCKET_URL
-	})
-)
+const wsLink = new WebSocketLink({
+	uri: WEBSOCKET_URL,
+	options: {
+		reconnect: true
+	}
+})
 
 const splitLink = ApolloLink.split(
-	operation => {
-		const definition = getMainDefinition(operation.query)
-
+	({ query }) => {
+		const definition = getMainDefinition(query)
 		return (
 			definition.kind === 'OperationDefinition' &&
 			definition.operation === 'subscription'

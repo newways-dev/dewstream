@@ -6,11 +6,11 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getLocale, getMessages } from 'next-intl/server'
 
 import { ApolloClientProvider } from '@/providers/ApolloClientProvider'
+import { ThemeProvider } from '@/providers/ThemeProvider'
+import { ToastProvider } from '@/providers/ToastProvider'
 import '@/styles/globals.css'
 import '@/styles/themes.css'
 import { cn } from '@/utils/tw-merge'
-import { ThemeProvider } from '@/providers/ThemeProvider'
-import { ToastProvider } from '@/providers/ToastProvider'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 

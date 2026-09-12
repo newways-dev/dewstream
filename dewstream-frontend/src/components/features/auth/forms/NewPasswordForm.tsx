@@ -1,8 +1,9 @@
 'use client'
 
+import { useParams, useRouter } from 'next/navigation'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { useParams, useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -16,12 +17,10 @@ import {
 	FormLabel
 } from '@/components/ui/common/Form'
 import { Input } from '@/components/ui/common/Input'
-
 import { useNewPasswordMutation } from '@/graphql/generated/output'
-
 import {
-	type TypeNewPasswordSchema,
-	newPasswordSchema
+	newPasswordSchema,
+	type TypeNewPasswordSchema
 } from '@/schemas/auth/new-passsword.schema'
 
 import { AuthWrapper } from '../AuthWrapper'

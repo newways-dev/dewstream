@@ -2,6 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql'
 
 import { User } from '@/generated/prisma/client'
 import { FollowModel } from '@/modules/follow/models/follow.model'
+import { NotificationSettingsModel } from '@/modules/notification/models/notification-settings.model'
 import { PlanModel } from '@/modules/sponsorship/plan/models/plan.model'
 import { StreamModel } from '@/modules/stream/models/stream.model'
 
@@ -56,6 +57,9 @@ export class UserModel implements User {
 
 	@Field(() => StreamModel)
 	public stream: StreamModel
+
+	@Field(() => NotificationSettingsModel)
+	public notificationSettings: NotificationSettingsModel
 
 	@Field(() => [PlanModel], { nullable: true })
 	public sponsorshipPlans: PlanModel[]

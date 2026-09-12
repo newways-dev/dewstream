@@ -1,9 +1,11 @@
 'use client'
 
+import { useState } from 'react'
+
+import { useRouter } from 'next/navigation'
+
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
@@ -22,14 +24,11 @@ import {
 	InputOTPGroup,
 	InputOTPSlot
 } from '@/components/ui/common/InputOTP'
-
 import { useDeactivateAccountMutation } from '@/graphql/generated/output'
-
 import { useAuth } from '@/hooks/useAuth'
-
 import {
-	type TypeDeactivateSchema,
-	deactivateSchema
+	deactivateSchema,
+	type TypeDeactivateSchema
 } from '@/schemas/auth/deactivate.schema'
 
 import { AuthWrapper } from '../AuthWrapper'
