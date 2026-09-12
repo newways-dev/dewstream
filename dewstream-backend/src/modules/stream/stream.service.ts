@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
 import { FileUpload } from 'graphql-upload-ts'
 import { AccessToken } from 'livekit-server-sdk'
-import { sharp } from 'sharp'
+import sharp from 'sharp'
 
 import { PrismaService } from '@/core/prisma/prisma.service'
 import { Prisma, User } from '@/generated/prisma/client'
