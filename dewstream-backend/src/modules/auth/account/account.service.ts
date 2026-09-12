@@ -27,6 +27,7 @@ export class AccountService {
 				id
 			},
 			include: {
+				stream: true,
 				notificationSettings: true
 			}
 		})

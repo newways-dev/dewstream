@@ -558,6 +558,12 @@ export type DeactivateAccountInput = {
   pin?: string | null | undefined;
 };
 
+export type FiltersInput = {
+  searchTerm?: string | null | undefined;
+  skip?: number | null | undefined;
+  take?: number | null | undefined;
+};
+
 export type LoginInput = {
   login: string;
   password: string;
@@ -636,10 +642,39 @@ export type ClearSessionCookieMutationVariables = Exact<{ [key: string]: never; 
 
 export type ClearSessionCookieMutation = { clearSessionCookie: boolean };
 
+export type FindAllCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindAllCategoriesQuery = { findAllCategories: Array<{ id: string, updatedAt: unknown, title: string, slug: string, thumbnailUrl: string }> };
+
+export type FindCategoryBySlugQueryVariables = Exact<{
+  slug: string;
+}>;
+
+
+export type FindCategoryBySlugQuery = { findCategoryBySlug: { title: string, thumbnailUrl: string, description: string | null, streams: Array<{ title: string, thumbnailUrl: string | null, isLive: boolean, user: { username: string, avatar: string | null, isVerified: boolean }, category: { title: string, slug: string } | null }> } };
+
+export type FindRandomCategoriesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindRandomCategoriesQuery = { findRandomCategories: Array<{ title: string, slug: string, thumbnailUrl: string }> };
+
 export type FindRecommendedChannelsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type FindRecommendedChannelsQuery = { findRecommendedChannels: Array<{ username: string, avatar: string | null, isVerified: boolean, stream: { isLive: boolean } }> };
+
+export type FindAllStreamsQueryVariables = Exact<{
+  filters: FiltersInput;
+}>;
+
+
+export type FindAllStreamsQuery = { findAllStreams: Array<{ title: string, thumbnailUrl: string | null, isLive: boolean, user: { username: string, avatar: string | null, isVerified: boolean }, category: { title: string, slug: string } | null }> };
+
+export type FindRandomStreamsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type FindRandomStreamsQuery = { findRandomStreams: Array<{ title: string, thumbnailUrl: string | null, isLive: boolean, user: { username: string, avatar: string | null, isVerified: boolean }, category: { title: string, slug: string } | null }> };
 
 export type FindNotificationsByUserQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -918,6 +953,155 @@ export function useClearSessionCookieMutation(baseOptions?: ApolloReactHooks.Mut
 export type ClearSessionCookieMutationHookResult = ReturnType<typeof useClearSessionCookieMutation>;
 export type ClearSessionCookieMutationResult = ApolloReactCommon.MutationResult<ClearSessionCookieMutation>;
 export type ClearSessionCookieMutationOptions = ApolloReactCommon.BaseMutationOptions<ClearSessionCookieMutation, ClearSessionCookieMutationVariables>;
+export const FindAllCategoriesDocument = gql`
+    query FindAllCategories {
+  findAllCategories {
+    id
+    updatedAt
+    title
+    slug
+    thumbnailUrl
+  }
+}
+    `;
+
+/**
+ * __useFindAllCategoriesQuery__
+ *
+ * To run a query within a React component, call `useFindAllCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindAllCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindAllCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFindAllCategoriesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>(FindAllCategoriesDocument, options);
+      }
+export function useFindAllCategoriesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>(FindAllCategoriesDocument, options);
+        }
+// @ts-ignore
+export function useFindAllCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>;
+export function useFindAllCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindAllCategoriesQuery | undefined, FindAllCategoriesQueryVariables>;
+export function useFindAllCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>(FindAllCategoriesDocument, options);
+        }
+export type FindAllCategoriesQueryHookResult = ReturnType<typeof useFindAllCategoriesQuery>;
+export type FindAllCategoriesLazyQueryHookResult = ReturnType<typeof useFindAllCategoriesLazyQuery>;
+export type FindAllCategoriesSuspenseQueryHookResult = ReturnType<typeof useFindAllCategoriesSuspenseQuery>;
+export type FindAllCategoriesQueryResult = ApolloReactCommon.QueryResult<FindAllCategoriesQuery, FindAllCategoriesQueryVariables>;
+export const FindCategoryBySlugDocument = gql`
+    query FindCategoryBySlug($slug: String!) {
+  findCategoryBySlug(slug: $slug) {
+    title
+    thumbnailUrl
+    description
+    streams {
+      title
+      thumbnailUrl
+      isLive
+      user {
+        username
+        avatar
+        isVerified
+      }
+      category {
+        title
+        slug
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useFindCategoryBySlugQuery__
+ *
+ * To run a query within a React component, call `useFindCategoryBySlugQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindCategoryBySlugQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindCategoryBySlugQuery({
+ *   variables: {
+ *      slug: // value for 'slug'
+ *   },
+ * });
+ */
+export function useFindCategoryBySlugQuery(baseOptions: ApolloReactHooks.QueryHookOptions<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables> & ({ variables: FindCategoryBySlugQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>(FindCategoryBySlugDocument, options);
+      }
+export function useFindCategoryBySlugLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>(FindCategoryBySlugDocument, options);
+        }
+// @ts-ignore
+export function useFindCategoryBySlugSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>;
+export function useFindCategoryBySlugSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindCategoryBySlugQuery | undefined, FindCategoryBySlugQueryVariables>;
+export function useFindCategoryBySlugSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>(FindCategoryBySlugDocument, options);
+        }
+export type FindCategoryBySlugQueryHookResult = ReturnType<typeof useFindCategoryBySlugQuery>;
+export type FindCategoryBySlugLazyQueryHookResult = ReturnType<typeof useFindCategoryBySlugLazyQuery>;
+export type FindCategoryBySlugSuspenseQueryHookResult = ReturnType<typeof useFindCategoryBySlugSuspenseQuery>;
+export type FindCategoryBySlugQueryResult = ApolloReactCommon.QueryResult<FindCategoryBySlugQuery, FindCategoryBySlugQueryVariables>;
+export const FindRandomCategoriesDocument = gql`
+    query FindRandomCategories {
+  findRandomCategories {
+    title
+    slug
+    thumbnailUrl
+  }
+}
+    `;
+
+/**
+ * __useFindRandomCategoriesQuery__
+ *
+ * To run a query within a React component, call `useFindRandomCategoriesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindRandomCategoriesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindRandomCategoriesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFindRandomCategoriesQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>(FindRandomCategoriesDocument, options);
+      }
+export function useFindRandomCategoriesLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>(FindRandomCategoriesDocument, options);
+        }
+// @ts-ignore
+export function useFindRandomCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>;
+export function useFindRandomCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindRandomCategoriesQuery | undefined, FindRandomCategoriesQueryVariables>;
+export function useFindRandomCategoriesSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>(FindRandomCategoriesDocument, options);
+        }
+export type FindRandomCategoriesQueryHookResult = ReturnType<typeof useFindRandomCategoriesQuery>;
+export type FindRandomCategoriesLazyQueryHookResult = ReturnType<typeof useFindRandomCategoriesLazyQuery>;
+export type FindRandomCategoriesSuspenseQueryHookResult = ReturnType<typeof useFindRandomCategoriesSuspenseQuery>;
+export type FindRandomCategoriesQueryResult = ApolloReactCommon.QueryResult<FindRandomCategoriesQuery, FindRandomCategoriesQueryVariables>;
 export const FindRecommendedChannelsDocument = gql`
     query FindRecommendedChannels {
   findRecommendedChannels {
@@ -965,6 +1149,113 @@ export type FindRecommendedChannelsQueryHookResult = ReturnType<typeof useFindRe
 export type FindRecommendedChannelsLazyQueryHookResult = ReturnType<typeof useFindRecommendedChannelsLazyQuery>;
 export type FindRecommendedChannelsSuspenseQueryHookResult = ReturnType<typeof useFindRecommendedChannelsSuspenseQuery>;
 export type FindRecommendedChannelsQueryResult = ApolloReactCommon.QueryResult<FindRecommendedChannelsQuery, FindRecommendedChannelsQueryVariables>;
+export const FindAllStreamsDocument = gql`
+    query FindAllStreams($filters: FiltersInput!) {
+  findAllStreams(filters: $filters) {
+    title
+    thumbnailUrl
+    isLive
+    user {
+      username
+      avatar
+      isVerified
+    }
+    category {
+      title
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __useFindAllStreamsQuery__
+ *
+ * To run a query within a React component, call `useFindAllStreamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindAllStreamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindAllStreamsQuery({
+ *   variables: {
+ *      filters: // value for 'filters'
+ *   },
+ * });
+ */
+export function useFindAllStreamsQuery(baseOptions: ApolloReactHooks.QueryHookOptions<FindAllStreamsQuery, FindAllStreamsQueryVariables> & ({ variables: FindAllStreamsQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<FindAllStreamsQuery, FindAllStreamsQueryVariables>(FindAllStreamsDocument, options);
+      }
+export function useFindAllStreamsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindAllStreamsQuery, FindAllStreamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<FindAllStreamsQuery, FindAllStreamsQueryVariables>(FindAllStreamsDocument, options);
+        }
+// @ts-ignore
+export function useFindAllStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindAllStreamsQuery, FindAllStreamsQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindAllStreamsQuery, FindAllStreamsQueryVariables>;
+export function useFindAllStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindAllStreamsQuery, FindAllStreamsQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindAllStreamsQuery | undefined, FindAllStreamsQueryVariables>;
+export function useFindAllStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindAllStreamsQuery, FindAllStreamsQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindAllStreamsQuery, FindAllStreamsQueryVariables>(FindAllStreamsDocument, options);
+        }
+export type FindAllStreamsQueryHookResult = ReturnType<typeof useFindAllStreamsQuery>;
+export type FindAllStreamsLazyQueryHookResult = ReturnType<typeof useFindAllStreamsLazyQuery>;
+export type FindAllStreamsSuspenseQueryHookResult = ReturnType<typeof useFindAllStreamsSuspenseQuery>;
+export type FindAllStreamsQueryResult = ApolloReactCommon.QueryResult<FindAllStreamsQuery, FindAllStreamsQueryVariables>;
+export const FindRandomStreamsDocument = gql`
+    query FindRandomStreams {
+  findRandomStreams {
+    title
+    thumbnailUrl
+    isLive
+    user {
+      username
+      avatar
+      isVerified
+    }
+    category {
+      title
+      slug
+    }
+  }
+}
+    `;
+
+/**
+ * __useFindRandomStreamsQuery__
+ *
+ * To run a query within a React component, call `useFindRandomStreamsQuery` and pass it any options that fit your needs.
+ * When your component renders, `useFindRandomStreamsQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFindRandomStreamsQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useFindRandomStreamsQuery(baseOptions?: ApolloReactHooks.QueryHookOptions<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useQuery<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>(FindRandomStreamsDocument, options);
+      }
+export function useFindRandomStreamsLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useLazyQuery<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>(FindRandomStreamsDocument, options);
+        }
+// @ts-ignore
+export function useFindRandomStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>;
+export function useFindRandomStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindRandomStreamsQuery | undefined, FindRandomStreamsQueryVariables>;
+export function useFindRandomStreamsSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>(FindRandomStreamsDocument, options);
+        }
+export type FindRandomStreamsQueryHookResult = ReturnType<typeof useFindRandomStreamsQuery>;
+export type FindRandomStreamsLazyQueryHookResult = ReturnType<typeof useFindRandomStreamsLazyQuery>;
+export type FindRandomStreamsSuspenseQueryHookResult = ReturnType<typeof useFindRandomStreamsSuspenseQuery>;
+export type FindRandomStreamsQueryResult = ApolloReactCommon.QueryResult<FindRandomStreamsQuery, FindRandomStreamsQueryVariables>;
 export const FindNotificationsByUserDocument = gql`
     query FindNotificationsByUser {
   findNotificationsByUser {
