@@ -13,6 +13,10 @@ const config: CodegenConfig = {
 			]
 		}
 	},
+	config: {
+		apolloReactHooksImportFrom: '@apollo/client/react',
+		apolloReactCommonImportFrom: '@apollo/client/react'
+	},
 	ignoreNoDocuments: true
 }
 

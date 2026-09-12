@@ -3,7 +3,8 @@ type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 /** Internal type. DO NOT USE DIRECTLY. */
 export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 import { gql } from '@apollo/client';
-import * as Apollo from '@apollo/client';
+import * as ApolloReactCommon from '@apollo/client/react';
+import * as ApolloReactHooks from '@apollo/client/react';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 const defaultOptions = {} as const;
@@ -544,6 +545,79 @@ export type VerificationInput = {
   token: Scalars['String']['input'];
 };
 
+export type CreateUserInput = {
+  email: string;
+  password: string;
+  username: string;
+};
+
+export type DeactivateAccountInput = {
+  email: string;
+  password: string;
+  pin?: string | null | undefined;
+};
+
+export type LoginInput = {
+  login: string;
+  password: string;
+};
+
+export type NewPasswordInput = {
+  password: string;
+  passwordRepeat: string;
+  token: string;
+};
+
+export type ResetPasswordInput = {
+  email: string;
+};
+
+export type VerificationInput = {
+  token: string;
+};
+
+export type CreateUserMutationVariables = Exact<{
+  data: CreateUserInput;
+}>;
+
+
+export type CreateUserMutation = { createUser: boolean };
+
+export type DeactivateAccountMutationVariables = Exact<{
+  data: DeactivateAccountInput;
+}>;
+
+
+export type DeactivateAccountMutation = { deactivateAccount: { message: string | null, user: { isDeactivated: boolean } | null } };
+
+export type LoginUserMutationVariables = Exact<{
+  data: LoginInput;
+}>;
+
+
+export type LoginUserMutation = { loginUser: { message: string | null, user: { username: string } | null } };
+
+export type NewPasswordMutationVariables = Exact<{
+  data: NewPasswordInput;
+}>;
+
+
+export type NewPasswordMutation = { newPassword: boolean };
+
+export type ResetPasswordMutationVariables = Exact<{
+  data: ResetPasswordInput;
+}>;
+
+
+export type ResetPasswordMutation = { resetPassword: boolean };
+
+export type VerifyAccountMutationVariables = Exact<{
+  data: VerificationInput;
+}>;
+
+
+export type VerifyAccountMutation = { verifyAccount: { message: string | null, user: { isEmailVerified: boolean } | null } };
+
 export type FindChannelByUsernameQueryVariables = Exact<{
   username: string;
 }>;
@@ -552,6 +626,207 @@ export type FindChannelByUsernameQueryVariables = Exact<{
 export type FindChannelByUsernameQuery = { findChannelByUsername: { id: string, username: string, displayName: string, avatar: string | null, bio: string | null, isVerified: boolean, socialLinks: Array<{ title: string, url: string }>, stream: { id: string, title: string, thumbnailUrl: string | null, isLive: boolean, isChatEnabled: boolean, isChatFollowersOnly: boolean, isChatPremiumFollowersOnly: boolean, category: { id: string, title: string } | null } } };
 
 
+export const CreateUserDocument = gql`
+    mutation CreateUser($data: CreateUserInput!) {
+  createUser(data: $data)
+}
+    `;
+export type CreateUserMutationFn = ApolloReactCommon.MutationFunction<CreateUserMutation, CreateUserMutationVariables>;
+
+/**
+ * __useCreateUserMutation__
+ *
+ * To run a mutation, you first call `useCreateUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useCreateUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [createUserMutation, { data, loading, error }] = useCreateUserMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useCreateUserMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<CreateUserMutation, CreateUserMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<CreateUserMutation, CreateUserMutationVariables>(CreateUserDocument, options);
+      }
+export type CreateUserMutationHookResult = ReturnType<typeof useCreateUserMutation>;
+export type CreateUserMutationResult = ApolloReactCommon.MutationResult<CreateUserMutation>;
+export type CreateUserMutationOptions = ApolloReactCommon.BaseMutationOptions<CreateUserMutation, CreateUserMutationVariables>;
+export const DeactivateAccountDocument = gql`
+    mutation DeactivateAccount($data: DeactivateAccountInput!) {
+  deactivateAccount(data: $data) {
+    user {
+      isDeactivated
+    }
+    message
+  }
+}
+    `;
+export type DeactivateAccountMutationFn = ApolloReactCommon.MutationFunction<DeactivateAccountMutation, DeactivateAccountMutationVariables>;
+
+/**
+ * __useDeactivateAccountMutation__
+ *
+ * To run a mutation, you first call `useDeactivateAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useDeactivateAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [deactivateAccountMutation, { data, loading, error }] = useDeactivateAccountMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useDeactivateAccountMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<DeactivateAccountMutation, DeactivateAccountMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<DeactivateAccountMutation, DeactivateAccountMutationVariables>(DeactivateAccountDocument, options);
+      }
+export type DeactivateAccountMutationHookResult = ReturnType<typeof useDeactivateAccountMutation>;
+export type DeactivateAccountMutationResult = ApolloReactCommon.MutationResult<DeactivateAccountMutation>;
+export type DeactivateAccountMutationOptions = ApolloReactCommon.BaseMutationOptions<DeactivateAccountMutation, DeactivateAccountMutationVariables>;
+export const LoginUserDocument = gql`
+    mutation LoginUser($data: LoginInput!) {
+  loginUser(data: $data) {
+    user {
+      username
+    }
+    message
+  }
+}
+    `;
+export type LoginUserMutationFn = ApolloReactCommon.MutationFunction<LoginUserMutation, LoginUserMutationVariables>;
+
+/**
+ * __useLoginUserMutation__
+ *
+ * To run a mutation, you first call `useLoginUserMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useLoginUserMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [loginUserMutation, { data, loading, error }] = useLoginUserMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useLoginUserMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<LoginUserMutation, LoginUserMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<LoginUserMutation, LoginUserMutationVariables>(LoginUserDocument, options);
+      }
+export type LoginUserMutationHookResult = ReturnType<typeof useLoginUserMutation>;
+export type LoginUserMutationResult = ApolloReactCommon.MutationResult<LoginUserMutation>;
+export type LoginUserMutationOptions = ApolloReactCommon.BaseMutationOptions<LoginUserMutation, LoginUserMutationVariables>;
+export const NewPasswordDocument = gql`
+    mutation NewPassword($data: NewPasswordInput!) {
+  newPassword(data: $data)
+}
+    `;
+export type NewPasswordMutationFn = ApolloReactCommon.MutationFunction<NewPasswordMutation, NewPasswordMutationVariables>;
+
+/**
+ * __useNewPasswordMutation__
+ *
+ * To run a mutation, you first call `useNewPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useNewPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [newPasswordMutation, { data, loading, error }] = useNewPasswordMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useNewPasswordMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<NewPasswordMutation, NewPasswordMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<NewPasswordMutation, NewPasswordMutationVariables>(NewPasswordDocument, options);
+      }
+export type NewPasswordMutationHookResult = ReturnType<typeof useNewPasswordMutation>;
+export type NewPasswordMutationResult = ApolloReactCommon.MutationResult<NewPasswordMutation>;
+export type NewPasswordMutationOptions = ApolloReactCommon.BaseMutationOptions<NewPasswordMutation, NewPasswordMutationVariables>;
+export const ResetPasswordDocument = gql`
+    mutation ResetPassword($data: ResetPasswordInput!) {
+  resetPassword(data: $data)
+}
+    `;
+export type ResetPasswordMutationFn = ApolloReactCommon.MutationFunction<ResetPasswordMutation, ResetPasswordMutationVariables>;
+
+/**
+ * __useResetPasswordMutation__
+ *
+ * To run a mutation, you first call `useResetPasswordMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useResetPasswordMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [resetPasswordMutation, { data, loading, error }] = useResetPasswordMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useResetPasswordMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<ResetPasswordMutation, ResetPasswordMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<ResetPasswordMutation, ResetPasswordMutationVariables>(ResetPasswordDocument, options);
+      }
+export type ResetPasswordMutationHookResult = ReturnType<typeof useResetPasswordMutation>;
+export type ResetPasswordMutationResult = ApolloReactCommon.MutationResult<ResetPasswordMutation>;
+export type ResetPasswordMutationOptions = ApolloReactCommon.BaseMutationOptions<ResetPasswordMutation, ResetPasswordMutationVariables>;
+export const VerifyAccountDocument = gql`
+    mutation VerifyAccount($data: VerificationInput!) {
+  verifyAccount(data: $data) {
+    user {
+      isEmailVerified
+    }
+    message
+  }
+}
+    `;
+export type VerifyAccountMutationFn = ApolloReactCommon.MutationFunction<VerifyAccountMutation, VerifyAccountMutationVariables>;
+
+/**
+ * __useVerifyAccountMutation__
+ *
+ * To run a mutation, you first call `useVerifyAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useVerifyAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [verifyAccountMutation, { data, loading, error }] = useVerifyAccountMutation({
+ *   variables: {
+ *      data: // value for 'data'
+ *   },
+ * });
+ */
+export function useVerifyAccountMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<VerifyAccountMutation, VerifyAccountMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<VerifyAccountMutation, VerifyAccountMutationVariables>(VerifyAccountDocument, options);
+      }
+export type VerifyAccountMutationHookResult = ReturnType<typeof useVerifyAccountMutation>;
+export type VerifyAccountMutationResult = ApolloReactCommon.MutationResult<VerifyAccountMutation>;
+export type VerifyAccountMutationOptions = ApolloReactCommon.BaseMutationOptions<VerifyAccountMutation, VerifyAccountMutationVariables>;
 export const FindChannelByUsernameDocument = gql`
     query FindChannelByUsername($username: String!) {
   findChannelByUsername(username: $username) {
@@ -598,22 +873,22 @@ export const FindChannelByUsernameDocument = gql`
  *   },
  * });
  */
-export function useFindChannelByUsernameQuery(baseOptions: Apollo.QueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables> & ({ variables: FindChannelByUsernameQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+export function useFindChannelByUsernameQuery(baseOptions: ApolloReactHooks.QueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables> & ({ variables: FindChannelByUsernameQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
+        return ApolloReactHooks.useQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
       }
-export function useFindChannelByUsernameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>) {
+export function useFindChannelByUsernameLazyQuery(baseOptions?: ApolloReactHooks.LazyQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>) {
           const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
+          return ApolloReactHooks.useLazyQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
         }
 // @ts-ignore
-export function useFindChannelByUsernameSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>): Apollo.UseSuspenseQueryResult<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;
-export function useFindChannelByUsernameSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>): Apollo.UseSuspenseQueryResult<FindChannelByUsernameQuery | undefined, FindChannelByUsernameQueryVariables>;
-export function useFindChannelByUsernameSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>) {
-          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
-          return Apollo.useSuspenseQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
+export function useFindChannelByUsernameSuspenseQuery(baseOptions?: ApolloReactHooks.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;
+export function useFindChannelByUsernameSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>): ApolloReactHooks.UseSuspenseQueryResult<FindChannelByUsernameQuery | undefined, FindChannelByUsernameQueryVariables>;
+export function useFindChannelByUsernameSuspenseQuery(baseOptions?: ApolloReactHooks.SkipToken | ApolloReactHooks.SuspenseQueryHookOptions<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>) {
+          const options = baseOptions === ApolloReactHooks.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return ApolloReactHooks.useSuspenseQuery<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>(FindChannelByUsernameDocument, options);
         }
 export type FindChannelByUsernameQueryHookResult = ReturnType<typeof useFindChannelByUsernameQuery>;
 export type FindChannelByUsernameLazyQueryHookResult = ReturnType<typeof useFindChannelByUsernameLazyQuery>;
 export type FindChannelByUsernameSuspenseQueryHookResult = ReturnType<typeof useFindChannelByUsernameSuspenseQuery>;
-export type FindChannelByUsernameQueryResult = Apollo.QueryResult<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;
+export type FindChannelByUsernameQueryResult = ApolloReactCommon.QueryResult<FindChannelByUsernameQuery, FindChannelByUsernameQueryVariables>;

@@ -1,0 +1,621 @@
+{
+	"layout": {
+		"header": {
+			"logo": {
+				"platform": "Streaming-Plattform"
+			},
+			"headerMenu": {
+				"login": "Anmelden",
+				"register": "Registrieren",
+				"profileMenu": {
+					"notifications": {
+						"heading": "Benachrichtigungen",
+						"loading": "Wird geladen...",
+						"empty": "Sie haben keine Benachrichtigungen"
+					},
+					"successMessage": "Erfolgreich abgemeldet",
+					"errorMessage": "Fehler bei der Abmeldung",
+					"channel": "Mein Kanal",
+					"dashboard": "Dashboard",
+					"logout": "Abmelden"
+				}
+			},
+			"search": {
+				"placeholder": "Suchen"
+			}
+		},
+		"sidebar": {
+			"header": {
+				"expand": "Erweitern",
+				"collapse": "Einklappen",
+				"navigation": "Navigation"
+			},
+			"userNav": {
+				"home": "Startseite",
+				"categories": "Kategorien",
+				"streams": "Streams",
+				"recommended": "Empfohlen"
+			},
+			"recommended": {
+				"heading": "Empfehlungen"
+			},
+			"dashboardNav": {
+				"settings": "Einstellungen",
+				"streamSettings": "Stream-Einstellungen",
+				"keys": "Stream-Schlüssel",
+				"chatSettings": "Chat-Einstellungen",
+				"followers": "Follower",
+				"sponsors": "Sponsoren",
+				"premium": "Premium-Pläne",
+				"transactions": "Transaktionen"
+			}
+		}
+	},
+	"home": {
+		"streamsHeading": "Kanäle, die dir gefallen könnten",
+		"categoriesHeading": "Kategorien, die dir gefallen könnten"
+	},
+	"categories": {
+		"heading": "Kategorien",
+		"overview": {
+			"heading": "Streams für diese Kategorie"
+		}
+	},
+	"streams": {
+		"heading": "Streams",
+		"searchHeading": "Suche nach Anfrage"
+	},
+	"stream": {
+		"video": {
+			"offline": "ist offline",
+			"loading": "Verbindung wird herrgestellt...",
+			"player": {
+				"volume": "Lautstärke",
+				"fullscreen": {
+					"open": "Vollbild",
+					"exit": "Vollbild verlassen"
+				}
+			}
+		},
+		"info": {
+			"viewers": "Zuschauer",
+			"offline": "Offline"
+		},
+		"actions": {
+			"follow": {
+				"confirmUnfollowHeading": "Nicht mehr folgen",
+				"confirmUnfollowMessage": "Sie erhalten keine Benachrichtigungen mehr von diesem Kanal und er verschwindet aus Ihrer Liste der gefolgten Kanäle.",
+				"unfollowButton": "Nicht mehr folgen",
+				"followButton": "Folgen",
+				"successFollowMessage": "Sie folgen jetzt erfolgreich",
+				"errorFollowMessage": "Fehler beim Folgen",
+				"successUnfollowMessage": "Sie folgen nicht mehr erfolgreich",
+				"errorUnfollowMessage": "Fehler beim Entfolgen"
+			},
+			"support": {
+				"alreadySponsor": "Sie sind bereits Sponsor",
+				"supportAuthor": "Den Autor unterstützen",
+				"perMonth": "pro Monat",
+				"choose": "Auswählen",
+				"errorMessage": "Fehler bei der Erstellung der Zahlung"
+			},
+			"share": {
+				"heading": "Teilen"
+			}
+		},
+		"aboutChannel": {
+			"heading": "Über",
+			"followersCount": "Follower",
+			"noDescription": "Keine Beschreibung vorhanden."
+		},
+		"sponsors": {
+			"heading": "Kanal-Sponsoren"
+		},
+		"chat": {
+			"heading": "Chat",
+			"unavailable": "Chat nicht verfügbar",
+			"unavailableMessage": "Der Chat ist nicht verfügbar, solange kein Stream auf dem Kanal läuft. Bitte schauen Sie später wieder vorbei!",
+			"loading": "Verbindung wird herrgestellt...",
+			"info": {
+				"authRequired": "Anmeldung erforderlich",
+				"chatDisabled": "Chat deaktiviert",
+				"premiumFollowersOnly": "Nur für Sponsoren",
+				"followersOnly": "Nur für Follower"
+			},
+			"sendMessage": {
+				"placeholder": "Nachricht senden",
+				"emojiPlaceholder": "Suchen",
+				"errorMessage": "Fehler beim Senden der Nachricht."
+			}
+		},
+		"settings": {
+			"heading": "Streaming-Einstellungen",
+			"thumbnail": {
+				"updateButton": "Bild aktualisieren",
+				"confirmModal": {
+					"heading": "Stream-Vorschaubild entfernen",
+					"message": "Sind Sie sicher, dass Sie das Stream-Vorschaubild löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+				},
+				"info": "Unterstützte Formate: JPG, JPEG, PNG oder GIF. Maximale Größe: 10 MB.",
+				"successUpdateMessage": "Stream-Bild erfolgreich aktualisiert",
+				"errorUpdateMessage": "Fehler beim Aktualisieren des Stream-Bildes",
+				"successRemoveMessage": "Stream-Bild erfolgreich entfernt",
+				"errorRemoveMessage": "Fehler beim Entfernen des Stream-Bildes"
+			},
+			"info": {
+				"titleLabel": "Titel",
+				"titlePlaceholder": "GTA 5 Stream",
+				"titleDescription": "Geben Sie den Titel Ihres Streams ein. Er sollte kurz und einprägsam sein.",
+				"categoryLabel": "Kategorie",
+				"categoryPlaceholder": "Kategorie auswählen",
+				"categoryDescription": "Wählen Sie die Kategorie, zu der Ihr Inhalt gehört. Dies hilft den Zuschauern, Ihre Streams leichter zu finden.",
+				"submitButton": "Änderungen speichern",
+				"successMessage": "Stream-Einstellungen erfolgreich aktualisiert",
+				"errorMessage": "Fehler beim Aktualisieren der Stream-Einstellungen"
+			}
+		}
+	},
+	"success": {
+		"heading": "Zahlung erfolgreich!",
+		"details": {
+			"heading": "Sponsoring-Details:",
+			"price": "Preis:",
+			"duration": "Laufzeit:",
+			"channel": "Kanal:"
+		},
+		"congratulations": "Sie haben jetzt Zugriff auf die Premium-Inhalte des Kanals!",
+		"backToHome": "Zurück zur Startseite",
+		"backToChannel": "Zurück zum Kanal",
+		"support": "Wenn Sie Fragen haben, wenden Sie sich an unseren Support."
+	},
+	"notFound": {
+		"description": "Hoppla, etwas ist schiefgelaufen.",
+		"backToHome": "Zurück zur Startseite"
+	},
+	"auth": {
+		"register": {
+			"heading": "Bei Dewstream registrieren",
+			"backButtonLabel": "Sie haben schon ein Konto? Anmelden",
+			"usernameLabel": "Benutzername",
+			"usernameDescription": "So werden Sie von anderen Nutzern erkannt. Sie können ihn später ändern.",
+			"emailLabel": "E-Mail",
+			"emailDescription": "Wir können Ihre E-Mail-Adresse für kontobezogene Benachrichtigungen verwenden.",
+			"passwordLabel": "Passwort",
+			"passwordDescription": "Das Passwort muss mindestens 8 Zeichen enthalten.",
+			"submitButton": "Registrieren",
+			"successAlertTitle": "Überprüfen Sie Ihre E-Mail",
+			"successAlertDescription": "Eine Bestätigungs-E-Mail wurde an Ihren Posteingang gesendet. Falls Sie die E-Mail nicht sehen, überprüfen Sie Ihren Spam-Ordner",
+			"errorMessage": "Fehler beim Erstellen des Kontos"
+		},
+		"verify": {
+			"heading": "Kontoverifizierung",
+			"successMessage": "Konto verifiziert",
+			"errorMessage": "Fehler bei der Verifizierung"
+		},
+		"login": {
+			"heading": "Bei Dewstream anmelden",
+			"backButtonLabel": "Sie haben noch kein Konto? Registrieren!",
+			"loginLabel": "Anmeldename",
+			"loginDescription": "Ihr Benutzername oder Ihre E-Mail, die Sie bei der Registrierung verwendet haben.",
+			"passwordLabel": "Passwort",
+			"passwordDescription": "Das Passwort, das Sie bei der Registrierung verwendet haben.",
+			"pinLabel": "6-stelliger Code",
+			"pinDescription": "Geben Sie den Code aus Ihrer Authentifizierungs-App ein.",
+			"forgotPassword": "Passwort vergessen?",
+			"submitButton": "Anmelden",
+			"successMessage": "Sie haben sich erfolgreich angemeldet",
+			"errorMessage": "Fehler bei der Anmeldung"
+		},
+		"resetPassword": {
+			"heading": "Passwort zurücksetzen",
+			"backButtonLabel": "Sie haben schon ein Konto? Anmelden",
+			"emailLabel": "E-Mail",
+			"emailDescription": "Die E-Mail, die Sie bei der Registrierung verwendet haben",
+			"submitButton": "Passwort zurücksetzen",
+			"successAlertTitle": "Link gesendet",
+			"successAlertDescription": "Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail gesendet. Wenn Sie Telegram-Benachrichtigungen aktiviert haben, wurde der Link auch dorthin gesendet",
+			"errorMessage": "Fehler beim Zurücksetzen des Passworts"
+		},
+		"newPassword": {
+			"heading": "Neues Passwort",
+			"backButtonLabel": "Sie haben schon ein Konto? Anmelden",
+			"passwordLabel": "Neues Passwort",
+			"passwordDescription": "Das Passwort, das Sie bei der Registrierung verwendet haben",
+			"passwordRepeatLabel": "Passwort wiederholen",
+			"passwordRepeatDescription": "Wiederholen Sie Ihr neues Passwort zur Bestätigung",
+			"submitButton": "Neues Passwort festlegen",
+			"successMessage": "Passwort erfolgreich geändert",
+			"errorMessage": "Fehler beim Festlegen des neuen Passworts"
+		},
+		"deactivate": {
+			"heading": "Konto deaktivieren",
+			"backButtonLabel": "Zum Dashboard",
+			"emailLabel": "E-Mail",
+			"emailDescription": "Ihre E-Mail, die Sie bei der Registrierung verwendet haben",
+			"passwordLabel": "Passwort",
+			"passwordDescription": "Das Passwort, das Sie bei der Registrierung verwendet haben",
+			"pinLabel": "6-stelliger Code",
+			"pinDescription": "Ein Code wurde an Ihre E-Mail gesendet. Wenn Sie Telegram-Benachrichtigungen aktiviert haben, haben wir den Code auch dorthin gesendet",
+			"submitButton": "Deaktivieren",
+			"successMessage": "Sie haben Ihr Konto erfolgreich deaktiviert",
+			"errorMessage": "Fehler bei der Deaktivierung"
+		}
+	},
+	"dashboard": {
+		"settings": {
+			"header": {
+				"heading": "Einstellungen",
+				"description": "Hier können Sie Ihre Einstellungen verwalten",
+				"profile": "Profil",
+				"account": "Konto",
+				"appearance": "Erscheinungsbild",
+				"notifications": "Benachrichtigungen",
+				"sessions": "Sitzungen"
+			},
+			"profile": {
+				"header": {
+					"heading": "Profil",
+					"description": "Passen Sie Ihr Profil an, indem Sie Ihr Profilbild, persönliche Informationen und Links zu sozialen Medien ändern. Aktualisieren Sie Ihre Informationen, damit andere Nutzer mehr über Sie erfahren können."
+				},
+				"avatar": {
+					"heading": "Profilbild",
+					"updateButton": "Profilbild aktualisieren",
+					"confirmModal": {
+						"heading": "Profilbild entfernen",
+						"message": "Sind Sie sicher, dass Sie Ihr Profilbild entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+					},
+					"info": "Unterstützte Formate: JPG, JPEG, PNG, WEBP oder GIF. Maximale Größe: 10 MB.",
+					"successUpdateMessage": "Profilbild erfolgreich aktualisiert.",
+					"errorUpdateMessage": "Fehler beim Aktualisieren des Profilbilds.",
+					"successRemoveMessage": "Profilbild erfolgreich entfernt.",
+					"errorRemoveMessage": "Fehler beim Entfernen des Profilbilds."
+				},
+				"info": {
+					"heading": "Profileinstellungen",
+					"usernameLabel": "Benutzername",
+					"usernamePlaceholder": "johndoe",
+					"usernameDescription": "So werden Sie von anderen Nutzern erkannt.",
+					"displayNameLabel": "Anzeigename",
+					"displayNamePlaceholder": "John Doe",
+					"displayNameDescription": "Sie können in Ihrem Anzeigenamen Großbuchstaben nach Belieben verwenden.",
+					"bioLabel": "Über mich",
+					"bioPlaceholder": "Ich liebe Programmieren",
+					"bioDescription": "Die Informationen über Sie sollten nicht mehr als 300 Zeichen enthalten.",
+					"successMessage": "Profil erfolgreich aktualisiert",
+					"errorMessage": "Fehler beim Aktualisieren des Profils",
+					"submitButton": "Änderungen speichern"
+				},
+				"socialLinks": {
+					"createForm": {
+						"heading": "Links zu sozialen Medien",
+						"titleLabel": "Linktitel",
+						"titlePlaceholder": "Youtube",
+						"titleDescription": "Linktext",
+						"urlLabel": "Link-URL",
+						"urlPlaceholder": "https://github.com",
+						"urlDescription": "Wohin führt dieser Link? Bitte geben Sie die vollständige URL ein, z. B. https://github.com",
+						"submitButton": "Hinzufügen",
+						"successMessage": "Social-Media-Link erfolgreich hinzugefügt",
+						"errorMessage": "Fehler beim Hinzufügen des Social-Media-Links"
+					},
+					"editForm": {
+						"cancelButton": "Abbrechen",
+						"submitButton": "Speichern",
+						"successUpdateMessage": "Social-Media-Link erfolgreich aktualisiert",
+						"errorUpdateMessage": "Fehler beim Aktualisieren des Social-Media-Links",
+						"successRemoveMessage": "Social-Media-Link erfolgreich entfernt",
+						"errorRemoveMessage": "Fehler beim Entfernen des Social-Media-Links"
+					},
+					"successReorderMessage": "Reihenfolge der Social-Media-Links geändert",
+					"errorReorderMessage": "Fehler beim Ändern der Reihenfolge der Social-Media-Links"
+				}
+			},
+			"account": {
+				"header": {
+					"heading": "Konto",
+					"description": "Verwalten Sie Ihre Kontoeinstellungen, einschließlich Zugriffsänderungen, Sicherheit und Deaktivierungsoptionen.",
+					"securityHeading": "Sicherheit",
+					"securityDescription": "Richten Sie die Zwei-Faktor-Authentifizierung und automatische Verlängerungen für einen verbesserten Schutz Ihrer Daten ein.",
+					"deactivationHeading": "Deaktivierung",
+					"deactivationDescription": "Wenn Sie Ihr Konto vorübergehend oder dauerhaft deaktivieren möchten, verwenden Sie diese Option. Beachten Sie die Konsequenzen."
+				},
+				"email": {
+					"heading": "E-Mail-Adresse",
+					"emailLabel": "E-Mail",
+					"emailDescription": "Geben Sie Ihre neue E-Mail-Adresse ein.",
+					"submitButton": "Speichern",
+					"successMessage": "E-Mail erfolgreich aktualisiert",
+					"errorMessage": "Fehler bei der E-Mail-Aktualisierung"
+				},
+				"password": {
+					"heading": "Kontopasswort",
+					"oldPasswordLabel": "Altes Passwort",
+					"oldPasswordDescription": "Geben Sie Ihr altes Passwort ein, um Ihre Identität zu bestätigen, bevor Sie Ihr Passwort ändern. Dies ist notwendig, um die Sicherheit Ihres Kontos zu gewährleisten.",
+					"newPasswordLabel": "Neues Passwort",
+					"newPasswordDescription": "Ihr neues Passwort muss mindestens 8 Zeichen lang sein. Es wird empfohlen, Sonderzeichen für zusätzliche Sicherheit zu verwenden.",
+					"submitButton": "Speichern",
+					"successMessage": "Passwort erfolgreich aktualisiert",
+					"errorMessage": "Fehler beim Aktualisieren des Passworts"
+				},
+				"twoFactor": {
+					"heading": "TOTP-Authentifizierung",
+					"description": "Erhöhen Sie die Sicherheit Ihres Kontos durch Aktivierung der TOTP-Authentifizierung. Diese zusätzliche Schutzebene erfordert die Eingabe eines eindeutigen Codes, wodurch Ihr Konto weniger anfällig für unbefugten Zugriff ist.",
+					"enable": {
+						"trigger": "Aktivieren",
+						"heading": "TOTP aktivieren",
+						"qrInstructions": "Scannen Sie den QR-Code, um TOTP hinzuzufügen",
+						"secretCodeLabel": "Geheimer Code: ",
+						"pinLabel": "PIN-Code",
+						"pinDescription": "Bitte geben Sie den 6-stelligen Code aus Ihrer Authentifizierungs-App ein.",
+						"submitButton": "Bestätigen",
+						"successMessage": "TOTP-Authentifizierung aktiviert",
+						"errorMessage": "Fehler bei der Überprüfung des Codes"
+					},
+					"disable": {
+						"trigger": "Deaktivieren",
+						"heading": "Sind Sie sicher, dass Sie TOTP deaktivieren möchten?",
+						"message": "Das Deaktivieren der TOTP-Authentifizierung macht Ihr Konto weniger sicher. Sind Sie sicher, dass Sie fortfahren möchten?",
+						"successMessage": "TOTP-Authentifizierung wurde deaktiviert",
+						"errorMessage": "Fehler beim Deaktivieren"
+					}
+				},
+				"deactivation": {
+					"heading": "Kontodeaktivierung",
+					"description": "Nach der Deaktivierung Ihres Kontos können Sie sich nicht mehr anmelden. Ihr Konto wird nach 7 Tagen vollständig gelöscht. Bis dahin können Sie sich an den Support wenden, um den Zugriff wiederherzustellen und Ihr Konto zu entsperren.",
+					"confirmModal": {
+						"heading": "Deaktivierung bestätigen",
+						"message": "Sind Sie sicher, dass Sie Ihr Konto deaktivieren möchten? Der Zugriff kann nur innerhalb von 7 Tagen wiederhergestellt werden."
+					},
+					"button": "Deaktivieren"
+				}
+			},
+			"appearance": {
+				"header": {
+					"heading": "Erscheinungsbild",
+					"description": "Passen Sie das Erscheinungsbild der Website-Oberfläche nach Ihren Wünschen an. Wählen Sie ein Design und eine Sprache, die Ihre Erfahrung angenehmer machen."
+				},
+				"theme": {
+					"heading": "Design ändern",
+					"description": "Sie können ein dunkles oder helles Design für die Website-Oberfläche wählen.",
+					"successMessage": "Das Website-Design wurde erfolgreich geändert"
+				},
+				"language": {
+					"heading": "Website-Sprache",
+					"description": "Wählen Sie die Sprache, die auf der Website verwendet werden soll.",
+					"selectPlaceholder": "Sprache auswählen",
+					"successMessage": "Die Website-Sprache wurde erfolgreich geändert"
+				},
+				"color": {
+					"heading": "Akzentfarbe",
+					"description": "Wählen Sie eine Akzentfarbe für die Oberfläche"
+				}
+			},
+			"notifications": {
+				"header": {
+					"heading": "Benachrichtigungen",
+					"description": "Legen Sie fest, wie Sie Benachrichtigungen von Dewstream erhalten möchten. Sie erhalten Benachrichtigungen über den Start von Streams auf den Kanälen, die Sie abonniert haben, sowie über neue Follower."
+				},
+				"siteNotifications": {
+					"heading": "Website-Benachrichtigungen",
+					"description": "Wenn Sie Website-Benachrichtigungen deaktivieren, erhalten Sie keine Benachrichtigungen über neue Abonnenten Ihres Kanals und über neue Streams."
+				},
+				"telegramNotifications": {
+					"heading": "Telegram-Benachrichtigungen",
+					"description": "Wenn Sie Benachrichtigungen über Telegram aktivieren, wird Ihr Dewstream-Konto mit Ihrem Telegram-Konto verknüpft, und Sie erhalten Nachrichten über neue Abonnements, neue Streams, das Zurücksetzen von Passwörtern und Zwei-Faktor-Authentifizierungscodes."
+				},
+				"successMessage": "Benachrichtigungseinstellungen wurden erfolgreich aktualisiert",
+				"errorMessage": "Fehler beim Aktualisieren der Benachrichtigungseinstellungen"
+			},
+			"sessions": {
+				"header": {
+					"heading": "Sitzungen",
+					"description": "Sitzungen sind Geräte, die Sie derzeit verwenden oder verwendet haben, um auf Ihr Dewstream-Konto zuzugreifen. Hier können Sie die aktuell aktiven Sitzungen sehen."
+				},
+				"info": {
+					"current": "Aktuelle Sitzung",
+					"active": "Aktive Sitzungen",
+					"notFound": "Keine aktiven Sitzungen gefunden"
+				},
+				"sessionItem": {
+					"deleteButton": "Löschen",
+					"detailsButton": "Details",
+					"confirmModal": {
+						"heading": "Sitzung löschen",
+						"message": "Sind Sie sicher, dass Sie diese Sitzung löschen möchten? Diese Aktion führt zum unwiderruflichen Löschen der Sitzung auf diesem Gerät und beendet alle damit verbundenen aktiven Vorgänge."
+					},
+					"successMessage": "Sitzung gelöscht"
+				},
+				"sessionModal": {
+					"heading": "Sitzungsinformationen",
+					"device": "Gerät:",
+					"location": "Standort:",
+					"ipAddress": "IP-Adresse:",
+					"createdAt": "Erstellt am:"
+				}
+			}
+		},
+		"keys": {
+			"header": {
+				"heading": "Stream-Schlüssel",
+				"description": "Generieren Sie eine URL und einen Schlüssel für das Streaming."
+			},
+			"url": {
+				"heading": "URL"
+			},
+			"key": {
+				"heading": "Stream-Schlüssel"
+			},
+			"instructionModal": {
+				"trigger": "Anleitung",
+				"heading": "🛠️ OBS-Einrichtungsanleitung für Live-Streaming 🛠️",
+				"description": "Um Ihre Inhalte mit Ihrem Publikum zu teilen, folgen Sie dieser Schritt-für-Schritt-Anleitung zur Verbindung von OBS Studio. Nur wenige Schritte, und Sie sind bereit für den Live-Stream!",
+				"step1Title": "🔑 Schritt 1: OBS Studio herunterladen und Server-URL und Stream-Schlüssel generieren",
+				"step1Description": "Um mit dem Streaming zu beginnen, benötigen Sie zwei wichtige Elemente: Server-URL und Stream-Schlüssel. Folgen Sie diesen Schritten:",
+				"downloadObs": "OBS Studio herunterladen",
+				"downloadObsDescription": "Bevor Sie Ihren Stream einrichten, laden Sie das Programm herunter und installieren Sie es",
+				"obsLinkText": "OBS Studio",
+				"copyKeys": "Server-URL und Stream-Schlüssel kopieren",
+				"copyKeysDescription": "Nach der Generierung sehen Sie zwei Felder: Server-URL und Stream-Schlüssel. Klicken Sie auf die Kopiersymbole neben jedem Feld, um sie in Ihrer Zwischenablage zu speichern.",
+				"step2Title": "🎛️ Schritt 2: OBS Studio einrichten",
+				"step2Description": "Nachdem Sie nun die erforderlichen Daten haben, richten wir OBS für Ihren Stream ein:",
+				"openObs": "OBS Studio öffnen",
+				"openObsDescription": "Falls OBS noch nicht installiert ist, laden Sie es von der offiziellen Website herunter und installieren Sie es. Nach dem Start öffnet sich die Hauptseite von OBS.",
+				"openStreamSettings": "Stream-Einstellungen öffnen",
+				"openStreamSettingsDescription": "Klicken Sie im oberen Menü auf „Datei“ → „Einstellungen“. Gehen Sie zur Registerkarte „Stream“.",
+				"enterDetails": "Geben Sie Ihre Daten ein",
+				"enterDetailsDescription": "Wählen Sie im Feld „Dienst“ die Option „Benutzerdefiniert...“. Fügen Sie die zuvor kopierte Server-URL in das Feld „URL“ ein. Geben Sie im Feld „Stream-Schlüssel“ Ihren Stream-Schlüssel ein.",
+				"saveSettings": "Einstellungen speichern",
+				"saveSettingsDescription": "Klicken Sie auf „Anwenden“ und dann auf „OK“, um die Änderungen zu speichern.",
+				"step3Title": "🚀 Schritt 3: Mit dem Streaming beginnen",
+				"step3Description": "Nachdem OBS erfolgreich eingerichtet wurde, sind Sie bereit, eine Live-Übertragung zu starten:",
+				"startStream": "Streaming starten",
+				"startStreamDescription": "Kehren Sie zum OBS-Hauptbildschirm zurück und klicken Sie auf die Schaltfläche „Streaming starten“.",
+				"monitorStream": "Ihren Stream überwachen",
+				"monitorStreamDescription": "Ihr Stream beginnt in Echtzeit, und Sie können ihn sowohl auf der Plattform als auch in OBS verfolgen.",
+				"congrats": "✨ Herzlichen Glückwunsch! Sie haben OBS erfolgreich für das Streaming auf unserer Plattform eingerichtet. Ihr Publikum erwartet neue spannende Momente und Inhalte! 🎉",
+				"close": "Schließen"
+			},
+			"createModal": {
+				"trigger": "Schlüssel generieren",
+				"heading": "Schlüssel generieren",
+				"ingressTypeLabel": "Verbindungstyp",
+				"ingressTypePlaceholder": "Verbindungstyp auswählen",
+				"ingressTypeDescription": "Wählen Sie RTMP für klassisches Broadcasting oder WHIP für WebRTC-Verbindungen.",
+				"submitButton": "Generieren",
+				"successMessage": "Ingress erstellt",
+				"errorMessage": "Fehler beim Erstellen des Ingress"
+			}
+		},
+		"chat": {
+			"header": {
+				"heading": "Chat-Einstellungen",
+				"description": "Hier können Sie Ihre Chat-Einstellungen verwalten."
+			},
+			"isChatEnabled": {
+				"heading": "Chat aktivieren",
+				"description": "Wenn Sie den Chat aktivieren, können Zuschauer während Ihrer Übertragung Nachrichten im Chat senden."
+			},
+			"isChatFollowersOnly": {
+				"heading": "Chat nur für Follower",
+				"description": "Wenn Sie diese Einstellung aktivieren, können nur Ihre Follower Nachrichten im Chat senden."
+			},
+			"isChatPremiumFollowersOnly": {
+				"heading": "Chat nur für Premium-Follower",
+				"description": "Wenn Sie diese Einstellung aktivieren, können nur Premium-Follower Nachrichten im Chat senden."
+			},
+			"successMessage": "Chat-Einstellungen erfolgreich aktualisiert",
+			"errorMessage": "Fehler beim Aktualisieren der Chat-Einstellungen"
+		},
+		"followers": {
+			"header": {
+				"heading": "Follower",
+				"description": "Hier ist eine Liste aller Ihrer Follower."
+			},
+			"columns": {
+				"date": "Datum",
+				"user": "Benutzer",
+				"actions": "Aktionen",
+				"viewChannel": "Kanal ansehen"
+			}
+		},
+		"sponsors": {
+			"header": {
+				"heading": "Sponsoren",
+				"description": "Hier ist eine Liste aller Ihrer Sponsoren."
+			},
+			"columns": {
+				"date": "Ablaufdatum",
+				"user": "Benutzer",
+				"plan": "Plan",
+				"actions": "Aktionen",
+				"viewChannel": "Kanal ansehen"
+			}
+		},
+		"plans": {
+			"header": {
+				"heading": "Premium-Pläne",
+				"description": "Hier ist die Liste der Premium-Pläne für Ihren Kanal."
+			},
+			"alert": {
+				"heading": "Kanalverifizierung erforderlich",
+				"description": "Um Premium-Pläne zu erstellen, muss Ihr Kanal verifiziert sein. Sie benötigen nur 10 Abonnenten, um das Häkchen zu erhalten und diese Funktion freizuschalten."
+			},
+			"createForm": {
+				"trigger": "Plan erstellen",
+				"heading": "Plan erstellen",
+				"titleLabel": "Titel",
+				"titlePlaceholder": "Premium-Abonnement für den Kanal",
+				"titleDescription": "Geben Sie den Namen Ihres Plans ein. Dieser Name wird Ihren Abonnenten angezeigt.",
+				"descriptionLabel": "Beschreibung",
+				"descriptionPlaceholder": "Beschreiben Sie, was Ihr Plan enthält",
+				"descriptionDescription": "Beschreiben Sie, was Ihr Plan enthält. Dies hilft Ihren Abonnenten, die Vorteile des Abonnements zu verstehen.",
+				"priceLabel": "Preis",
+				"priceDescription": "Geben Sie den Preis Ihres Plans in der Währung an. Dies ist der Betrag, den Nutzer für das Abonnement zahlen.",
+				"submitButton": "Erstellen",
+				"successMessage": "Premium-Plan erstellt",
+				"errorMessage": "Fehler beim Erstellen des Plans"
+			},
+			"columns": {
+				"date": "Erstellungsdatum",
+				"title": "Titel",
+				"price": "Preis",
+				"actions": "Aktionen",
+				"remove": "Entfernen",
+				"successMessage": "Plan erfolgreich entfernt",
+				"removeMessage": "Fehler beim Entfernen des Plans"
+			}
+		},
+		"transactions": {
+			"header": {
+				"heading": "Transaktionen",
+				"description": "Hier sind die Transaktionen im Zusammenhang mit Kanal-Sponsoring."
+			},
+			"columns": {
+				"date": "Erstellungsdatum",
+				"status": "Status",
+				"success": "Erfolgreich",
+				"pending": "Ausstehend",
+				"failed": "Fehlgeschlagen",
+				"expired": "Abgelaufen",
+				"amount": "Betrag"
+			}
+		}
+	},
+	"components": {
+		"liveBadge": {
+			"text": "LIVE"
+		},
+		"confirmModal": {
+			"cancel": "Abbrechen",
+			"continue": "Fortfahren"
+		},
+		"copyButton": {
+			"successMessage": "Kopiert"
+		},
+		"dataTable": {
+			"notFound": "Nichts gefunden"
+		},
+		"emptyState": {
+			"heading": "Nichts gefunden",
+			"text": "Wir haben jeden Winkel unserer Seite durchsucht, aber leider wurde nichts für Ihre Anfrage gefunden. Vielleicht möchten Sie etwas anderes versuchen?"
+		}
+	},
+	"utils": {
+		"formatDate": {
+			"months": {
+				"january": "januar",
+				"february": "februar",
+				"march": "märz",
+				"april": "april",
+				"may": "mai",
+				"june": "juni",
+				"july": "juli",
+				"august": "august",
+				"september": "september",
+				"october": "oktober",
+				"november": "november",
+				"december": "dezember"
+			}
+		}
+	}
+}

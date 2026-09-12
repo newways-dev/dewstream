@@ -1,7 +1,7 @@
 import { ApolloClient, ApolloLink, InMemoryCache } from '@apollo/client'
-import UploadHttpLink from 'apollo-upload-client/UploadHttpLink.mjs'
 import { GraphQLWsLink } from '@apollo/client/link/subscriptions'
 import { getMainDefinition } from '@apollo/client/utilities'
+import UploadHttpLink from 'apollo-upload-client/UploadHttpLink.mjs'
 import { createClient } from 'graphql-ws'
 
 import { SERVER_URL, WEBSOCKET_URL } from './constants/url.constants'
