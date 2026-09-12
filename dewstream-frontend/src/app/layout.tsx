@@ -11,6 +11,7 @@ import { ToastProvider } from '@/providers/ToastProvider'
 import '@/styles/globals.css'
 import '@/styles/themes.css'
 import { cn } from '@/utils/tw-merge'
+import { ColorSwitcher } from '@/components/ui/elements/ColorSwitcher'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
@@ -46,6 +47,7 @@ export default async function RootLayout({ children }: LayoutProps<'/'>) {
 			)}
 		>
 			<body className={GeistSans.variable}>
+				<ColorSwitcher />
 				<ApolloClientProvider>
 					<NextIntlClientProvider messages={messages}>
 						<ThemeProvider
