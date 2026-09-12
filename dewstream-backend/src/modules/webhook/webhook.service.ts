@@ -29,6 +29,16 @@ export class WebhookService {
 		)
 
 		if (event.event === 'ingress_started') {
+			const existingStream = await this.prismaService.stream.findUnique({
+				where: {
+					ingressId: event.ingressInfo.ingressId
+				}
+			})
+
+			if (!existingStream) {
+				return
+			}
+
 			const stream = await this.prismaService.stream.update({
 				where: {
 					ingressId: event.ingressInfo.ingressId
@@ -80,6 +90,16 @@ export class WebhookService {
 		}
 
 		if (event.event === 'ingress_ended') {
+			const existingStream = await this.prismaService.stream.findUnique({
+				where: {
+					ingressId: event.ingressInfo.ingressId
+				}
+			})
+
+			if (!existingStream) {
+				return
+			}
+
 			const stream = await this.prismaService.stream.update({
 				where: {
 					ingressId: event.ingressInfo.ingressId

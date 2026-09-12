@@ -1,12 +1,9 @@
 import { z } from 'zod'
 
-export enum IngressType {
-	RTMP = 0,
-	WHIP = 1
-}
+import { IngressInput } from '@/graphql/generated/output'
 
 export const createIngressSchema = z.object({
-	ingressType: z.nativeEnum(IngressType)
+	ingressType: z.nativeEnum(IngressInput)
 })
 
 export type TypeCreateIngressSchema = z.infer<typeof createIngressSchema>

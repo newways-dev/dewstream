@@ -30,12 +30,14 @@ import {
 	SelectValue
 } from '@/components/ui/common/Select'
 
-import { useCreateIngressMutation } from '@/graphql/generated/output'
+import {
+	IngressInput,
+	useCreateIngressMutation
+} from '@/graphql/generated/output'
 
 import { useCurrent } from '@/hooks/useCurrent'
 
 import {
-	IngressType,
 	type TypeCreateIngressSchema,
 	createIngressSchema
 } from '@/schemas/stream/create-ingress.schema'
@@ -49,7 +51,7 @@ export function CreateIngressForm() {
 	const form = useForm<TypeCreateIngressSchema>({
 		resolver: zodResolver(createIngressSchema),
 		defaultValues: {
-			ingressType: IngressType.RTMP
+			ingressType: IngressInput.RtmpInput
 		}
 	})
 
@@ -95,9 +97,9 @@ export function CreateIngressForm() {
 									<FormControl>
 										<Select
 											onValueChange={value => {
-												field.onChange(Number(value))
+												field.onChange(value)
 											}}
-											defaultValue={field.value.toString()}
+											defaultValue={field.value}
 										>
 											<SelectTrigger>
 												<SelectValue
@@ -108,13 +110,17 @@ export function CreateIngressForm() {
 											</SelectTrigger>
 											<SelectContent>
 												<SelectItem
-													value={IngressType.RTMP.toString()}
+													value={
+														IngressInput.RtmpInput
+													}
 													disabled={isLoadingCreate}
 												>
 													RTMP
 												</SelectItem>
 												<SelectItem
-													value={IngressType.WHIP.toString()}
+													value={
+														IngressInput.WhipInput
+													}
 													disabled={isLoadingCreate}
 												>
 													WHIP
