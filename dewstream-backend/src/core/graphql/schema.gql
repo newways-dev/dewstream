@@ -334,6 +334,7 @@ type UserModel {
   deactivatedAt: DateTime
   displayName: String!
   email: String!
+  followings: [FollowModel!]
   id: ID!
   isDeactivated: Boolean!
   isEmailVerified: Boolean!
@@ -341,6 +342,7 @@ type UserModel {
   isVerified: Boolean!
   password: String!
   socialLinks: [SocialLinkModel!]!
+  sponsorshipPlans: [PlanModel!]
   stream: StreamModel!
   telegramId: String
   totpSecret: String
