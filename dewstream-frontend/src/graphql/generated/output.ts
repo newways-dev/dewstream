@@ -777,6 +777,20 @@ export type SendChatMessageMutationVariables = Exact<{
 
 export type SendChatMessageMutation = { sendChatMessage: { streamId: string } };
 
+export type FollowChannelMutationVariables = Exact<{
+  channelId: string;
+}>;
+
+
+export type FollowChannelMutation = { followChannel: boolean };
+
+export type UnfollowChannelMutationVariables = Exact<{
+  channelId: string;
+}>;
+
+
+export type UnfollowChannelMutation = { unfollowChannel: boolean };
+
 export type CreateSponsorshipPlanMutationVariables = Exact<{
   data: CreatePlanInput;
 }>;
@@ -1342,6 +1356,68 @@ export function useSendChatMessageMutation(baseOptions?: ApolloReactHooks.Mutati
 export type SendChatMessageMutationHookResult = ReturnType<typeof useSendChatMessageMutation>;
 export type SendChatMessageMutationResult = ApolloReactCommon.MutationResult<SendChatMessageMutation>;
 export type SendChatMessageMutationOptions = ApolloReactCommon.BaseMutationOptions<SendChatMessageMutation, SendChatMessageMutationVariables>;
+export const FollowChannelDocument = gql`
+    mutation FollowChannel($channelId: String!) {
+  followChannel(channelId: $channelId)
+}
+    `;
+export type FollowChannelMutationFn = ApolloReactCommon.MutationFunction<FollowChannelMutation, FollowChannelMutationVariables>;
+
+/**
+ * __useFollowChannelMutation__
+ *
+ * To run a mutation, you first call `useFollowChannelMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFollowChannelMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [followChannelMutation, { data, loading, error }] = useFollowChannelMutation({
+ *   variables: {
+ *      channelId: // value for 'channelId'
+ *   },
+ * });
+ */
+export function useFollowChannelMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<FollowChannelMutation, FollowChannelMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<FollowChannelMutation, FollowChannelMutationVariables>(FollowChannelDocument, options);
+      }
+export type FollowChannelMutationHookResult = ReturnType<typeof useFollowChannelMutation>;
+export type FollowChannelMutationResult = ApolloReactCommon.MutationResult<FollowChannelMutation>;
+export type FollowChannelMutationOptions = ApolloReactCommon.BaseMutationOptions<FollowChannelMutation, FollowChannelMutationVariables>;
+export const UnfollowChannelDocument = gql`
+    mutation UnfollowChannel($channelId: String!) {
+  unfollowChannel(channelId: $channelId)
+}
+    `;
+export type UnfollowChannelMutationFn = ApolloReactCommon.MutationFunction<UnfollowChannelMutation, UnfollowChannelMutationVariables>;
+
+/**
+ * __useUnfollowChannelMutation__
+ *
+ * To run a mutation, you first call `useUnfollowChannelMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUnfollowChannelMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [unfollowChannelMutation, { data, loading, error }] = useUnfollowChannelMutation({
+ *   variables: {
+ *      channelId: // value for 'channelId'
+ *   },
+ * });
+ */
+export function useUnfollowChannelMutation(baseOptions?: ApolloReactHooks.MutationHookOptions<UnfollowChannelMutation, UnfollowChannelMutationVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return ApolloReactHooks.useMutation<UnfollowChannelMutation, UnfollowChannelMutationVariables>(UnfollowChannelDocument, options);
+      }
+export type UnfollowChannelMutationHookResult = ReturnType<typeof useUnfollowChannelMutation>;
+export type UnfollowChannelMutationResult = ApolloReactCommon.MutationResult<UnfollowChannelMutation>;
+export type UnfollowChannelMutationOptions = ApolloReactCommon.BaseMutationOptions<UnfollowChannelMutation, UnfollowChannelMutationVariables>;
 export const CreateSponsorshipPlanDocument = gql`
     mutation CreateSponsorshipPlan($data: CreatePlanInput!) {
   createSponsorshipPlan(data: $data)
